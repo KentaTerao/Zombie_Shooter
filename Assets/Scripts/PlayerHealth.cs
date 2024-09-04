@@ -23,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHP -= damage;
+        ComboManager.Instance.ResetCombo(); // ダメージを受けたらコンボをリセット
         damageUI.OnTakeDamage(); // ダメージを受けた際にUIを表示する
         playerSoundManager.PlayDamageSound(); // ダメージを受けた際のSEを再生する
 

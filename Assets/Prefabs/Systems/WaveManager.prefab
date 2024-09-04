@@ -48,13 +48,13 @@ MonoBehaviour:
   isWaveActive: 0
   waveStartTime: 0
   waveEndTime: 0
-  waveDuration: 20
-  timeBetweenWaves: 10
+  waveDuration: 60
+  timeBetweenWaves: 20
   extraItemManager: {fileID: 0}
   enemyPrefab: {fileID: 4671471157079696747, guid: f156e4f183304e34c9ed56dbe75a4068, type: 3}
   player: {fileID: 0}
-  spawnInterval: 1.5
+  spawnInterval: 2
   minSpawnDistance: 20
   maxSpawnDistance: 30
   baseHealth: 100
-  healthIncrement: 10
+  healthIncrement: 20

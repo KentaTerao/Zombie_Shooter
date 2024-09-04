@@ -33,6 +33,7 @@ public class EnemyHealth : MonoBehaviour
 
         isDead = true; // 死亡フラグを立てる
         gameObject.layer = LayerMask.NameToLayer("DeadEnemy"); // 死亡した敵を特定のレイヤーに変更
+        ComboManager.Instance.IncreaseComboCount(); // コンボ数を増加
         scoreManager.IncreaseScore(scoreAmount); // スコアを加算
         gameObject.GetComponent<CapsuleCollider>().isTrigger = true; // 死後、干渉できなくする
 

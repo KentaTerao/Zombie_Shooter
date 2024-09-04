@@ -202,6 +202,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\WeaponManager.cs" />
     <Compile Include="Assets\Scripts\TutorialManager.cs" />
+    <Compile Include="Assets\Scripts\ComboManager.cs" />
     <Compile Include="Assets\Scripts\TaskRun.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\Asset Packs\Standard Assets\CrossPlatformInput\Scripts\InputAxisScrollbar.cs" />
@@ -209,6 +210,7 @@
     <Compile Include="Assets\Asset Packs\Standard Assets\Utility\CameraRefocus.cs" />
     <Compile Include="Assets\Asset Packs\Standard Assets\Utility\WaypointProgressTracker.cs" />
     <Compile Include="Assets\Asset Packs\Standard Assets\Utility\WaypointCircuit.cs" />
+    <Compile Include="Assets\Scripts\ComboUI.cs" />
     <Compile Include="Assets\Scripts\RankingData.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />

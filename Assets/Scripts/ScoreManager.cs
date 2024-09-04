@@ -7,7 +7,7 @@ public class ScoreManager : MonoBehaviour
 {
     private static ScoreManager instance;
 
-    int score = 0;
+    int score = 0; // スコア
 
     // シングルトンのインスタンスを返すプロパティ
     public static ScoreManager Instance
@@ -46,7 +46,10 @@ public class ScoreManager : MonoBehaviour
 
     public void IncreaseScore(int scoreAmount)
     {
-        score += scoreAmount;
+        // ComboManagerからスコア乗算値を取得し、それを適用
+        float multiplier = ComboManager.Instance.GetScoreMultiplier();
+        int multipliedScore = Mathf.RoundToInt(scoreAmount * multiplier);
+        score += multipliedScore;
     }
 
     public void DecreaseScore(int scoreAmount)
@@ -57,6 +60,7 @@ public class ScoreManager : MonoBehaviour
     public void ResetScore()
     {
         score = 0;
+        ComboManager.Instance.ResetCombo(); // スコアをリセットする際にコンボもリセット
     }
 
     public int GetScore()

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Ammo : MonoBehaviour
 {
     [SerializeField] AmmoSlot[] ammoSlots;
+    int maxAmmo = 999; // 弾薬の最大所持数
 
     [System.Serializable]
     public class AmmoSlot
@@ -49,14 +50,25 @@ public class Ammo : MonoBehaviour
     // 弾薬の種類に応じて総弾数を増やすメソッド
     public void IncreaseTotalAmmo(AmmoType ammoType, int ammoAmount)
     {
-        GetAmmoSlot(ammoType).totalAmmoAmount += ammoAmount;
+        AmmoSlot slot = GetAmmoSlot(ammoType);
+
+        // 総弾数を増やす
+        if (slot.totalAmmoAmount + ammoAmount >= maxAmmo)
+            slot.totalAmmoAmount = maxAmmo;
+        else
+            slot.totalAmmoAmount += ammoAmount;
     }
 
     // 弾薬の種類に応じてマガジンの最大弾数を増やすメソッド
     public void IncreaseMagazineAmmo(AmmoType ammoType, int ammoAmount)
     {
         AmmoSlot slot = GetAmmoSlot(ammoType);
-        slot.maxMagazineSize += ammoAmount; // マガジンの最大弾数を増やす
+
+        // マガジンの最大弾数を増やす
+        if (slot.maxMagazineSize + ammoAmount >= maxAmmo)
+            slot.maxMagazineSize = maxAmmo;
+        else
+            slot.maxMagazineSize += ammoAmount;
 
         // マガジン内の弾を補充する
         int neededAmmo = slot.maxMagazineSize - slot.magazineAmmoAmount;

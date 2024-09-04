@@ -406,6 +406,8 @@
 "Assets/Scripts/AmmoType.cs"
 "Assets/Scripts/AmmoUI.cs"
 "Assets/Scripts/BgmManager.cs"
+"Assets/Scripts/ComboManager.cs"
+"Assets/Scripts/ComboUI.cs"
 "Assets/Scripts/DamageUI.cs"
 "Assets/Scripts/DeathHandler.cs"
 "Assets/Scripts/DropItem.cs"

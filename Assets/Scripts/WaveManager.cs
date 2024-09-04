@@ -16,6 +16,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] GameObject enemyPrefab; // 出現する敵のプレハブ
     [SerializeField] Transform player; // プレイヤーのTransform
     [SerializeField] float spawnInterval = 2f; // 敵の出現間隔
+    [SerializeField] float spawnIntervalDecay = 0.1f; // ウェーブに応じた敵の出現間隔の減衰
     [SerializeField] float minSpawnDistance = 10f; // プレイヤーと敵出現位置の最小距離
     [SerializeField] float maxSpawnDistance = 20f; // プレイヤーと敵出現位置の最大距離
     [SerializeField] int baseHealth = 100; // 敵の基本体力
@@ -60,11 +61,18 @@ public class WaveManager : MonoBehaviour
         // ウェーブの開始時刻を記録
         float startTime = Time.time;
 
+        // ウェーブが進むごとにスポーン間隔を短くする
+        float currentSpawnInterval;
+        if (spawnInterval - currentWave * spawnIntervalDecay <= 1.0f)
+            currentSpawnInterval = 1.0f;
+        else
+            currentSpawnInterval = spawnInterval - currentWave * spawnIntervalDecay;
+
         // ウェーブが指定時間続く間、敵を出現させ続ける
         while (Time.time - startTime < waveDuration)
         {
             SpawnEnemy(); // 敵を出現させる
-            yield return new WaitForSeconds(spawnInterval); // 敵の出現間隔を待つ
+            yield return new WaitForSeconds(currentSpawnInterval); // 敵の出現間隔を待つ
         }
     }
 
